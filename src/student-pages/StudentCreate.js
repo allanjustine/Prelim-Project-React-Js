@@ -45,7 +45,7 @@ const StudentCreate = () => {
                     
                 </Form.Control>
             </Form.Group>
-                <Button className="form-control mt-4" variant="success" type="submit" block="true">
+                <Button className="form-control mt-4" variant="primary" type="submit" block="true">
                     Add New Student
                 </Button>
         </Form>

@@ -9,8 +9,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Schedules from './venue-pages/Schedules';
 import Student from './student-pages/Student';
+import TeacherList from './teacher-pages/TeacherList';
 import {Link} from 'react-router-dom';
 import StudentContextProvider from './contexts/StudentContext';
+import TeacherContextProvider from './contexts/TeacherContext';
 
 function App() {
   return (
@@ -43,8 +45,12 @@ function App() {
                                       <i class="fa fa-user" aria-hidden="true" id="iconn"></i> <span class="ms-1 d-none d-sm-inline">Students</span></Link>
                               </li>
                               <li class="nav-item">
+                                  <Link to="/teachers" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                                      <i class="fa fa-users" aria-hidden="true" id="iconn"></i> <span class="ms-1 d-none d-sm-inline">Teachers</span></Link>
+                              </li>
+                              <li class="nav-item">
                                   <Link to="/about" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                      <i class="fa fa-users" aria-hidden="true" id="iconn"></i> <span class="ms-1 d-none d-sm-inline">About Us</span></Link>
+                                      <i class="fa fa-question-circle" aria-hidden="true" id="iconn"></i> <span class="ms-1 d-none d-sm-inline">About Us</span></Link>
                               </li>
                               </ul>
                       </div>
@@ -76,6 +82,11 @@ function App() {
                           <StudentContextProvider>
                             <Student />
                           </StudentContextProvider>
+                        </Route>
+                        <Route exact path="/teachers">
+                          <TeacherContextProvider>
+                            <TeacherList />
+                          </TeacherContextProvider>
                         </Route>
                       </Switch>
                   </div>

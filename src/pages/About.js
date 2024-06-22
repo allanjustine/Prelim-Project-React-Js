@@ -8,13 +8,13 @@ const About = () => {
             </h1>
             <div style={{ height: "90vh", overflow: "auto" }}>
                 <Carousel>
-                    <Carousel.Item interval={1000}>
+                    <Carousel.Item interval={2000}>
                         <img src={image} alt="image" title='mdc memorial wall' className='mt-3 mx-auto d-block' />
                     </Carousel.Item>
-                    <Carousel.Item interval={500}>
+                    <Carousel.Item interval={2000}>
                         <img src={image} alt="image" title='mdc memorial wall' className='mt-3 mx-auto d-block' />
                     </Carousel.Item>
-                    <Carousel.Item>
+                    <Carousel.Item interval={2000}>
                         <img src={image} alt="image" title='mdc memorial wall' className='mt-3 mx-auto d-block' />
                     </Carousel.Item>
                 </Carousel>

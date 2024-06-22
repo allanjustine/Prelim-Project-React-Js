@@ -4,13 +4,14 @@ import {StudentContext} from '../contexts/StudentContext';
 import {useContext} from 'react';
 
 
-const StudentEdit = ({canEditStudent}) => {
-    const id = canEditStudent.id;
+const StudentEdit = ({edit}) => {
+    
+    const id = edit.id;
 
-    const [name, setName] = useState(canEditStudent.name);
-    const [address, setAddress] = useState(canEditStudent.address);
-    const [email, setEmail] = useState(canEditStudent.email);
-    const [contactNumber, setContactNumber] = useState(canEditStudent.contactNumber);
+    const [name, setName] = useState(edit.name);
+    const [address, setAddress] = useState(edit.address);
+    const [email, setEmail] = useState(edit.email);
+    const [contactNumber, setContactNumber] = useState(edit.contactNumber);
 
     const {updateStudent} = useContext(StudentContext);
 

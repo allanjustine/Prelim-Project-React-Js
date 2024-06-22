@@ -7,17 +7,17 @@ import {useContext} from 'react';
 import {StudentContext} from '../contexts/StudentContext';
 import { ModalFooter } from 'react-bootstrap';
 
-const Student = () => {
+const Student = ({student}) => {
     const {students} = useContext(StudentContext);
     const {deleteStudent} = useContext(StudentContext);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [deleteshow, setDeleteShow] = useState(false);
-    const handleDeleteClose = () => setDeleteShow(false);
     const [editshow, setEditShow] = useState(false);
+    const [deleteshow, setDeleteShow] = useState(false);
     const handleEditClose = () => setEditShow(false);
     const handleEditShow = () => setEditShow(true);
+    const handleDeleteClose = () => setDeleteShow(false);
 
     const [deleteId, setDeleteId] = useState("");
 
@@ -89,13 +89,13 @@ const Student = () => {
                                     <button className="btn" id="delete-button"><i className="fa fa-trash" aria-hidden="true" id="delete"  onClick={() => handleClickDelete(student.id)}></i></button>
                                 </td>
                                 <Modal show={editshow} onHide={handleEditClose}>
-                                    <Modal.Header>
+                                    <Modal.Header closeButton>
                                         <Modal.Title className="modal-title">
                                             <h3>Edit Student</h3>
                                         </Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
-                                        <StudentEdit canEditStudent={student} />
+                                        <StudentEdit edit={student} />
                                         <Button className='form-control mt-1' variant="secondary" onClick={handleEditClose}>
                                             Close
                                         </Button>
@@ -110,20 +110,21 @@ const Student = () => {
             </div>
         </div>
         <Modal show={show} onHide={handleClose}>
-            <Modal.Header>
-                <Modal.Title className="modal-title">
-                    <h3>Add Student</h3>
+            <Modal.Header closeButton>
+                <Modal.Title>
+                    Add Student
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <StudentCreate />
-                <Button className='form-control mt-1' variant="secondary" onClick={handleClose}>
-                    Close
+                <Button className='form-control mt-2' variant="secondary" onClick={handleClose}>
+                    Close Button
                 </Button>
             </Modal.Body>
         </Modal>
+        
         <Modal show={deleteshow} onHide={handleDeleteClose}>
-            <Modal.Header>
+            <Modal.Header closeButton>
                 <Modal.Title className="modal-title">
                     <h3>Delete Student?</h3>
                 </Modal.Title>
@@ -139,8 +140,6 @@ const Student = () => {
             </ModalFooter>
         </Modal>
     </div>
-
-       
     );
 }
  
